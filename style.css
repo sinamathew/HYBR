@@ -1,0 +1,203 @@
+/* ===== Base Styles & Variables ===== */
+:root {
+    --primary-green: #2ecc71;
+    --secondary-blue: #3498db;
+    --accent-teal: #1abc9c;
+    --background-shade: rgba(245, 248, 250, 0.98);
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, var(--background-shade), #f5f8fa);
+    min-height: 100vh;
+  }
+  
+  /* ===== Header & Branding ===== */
+  header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .logo {
+    height: 80px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+  
+  h1 {
+    color: var(--secondary-blue);
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ===== Form Container & Layout ===== */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  /* ===== Question Cards ===== */
+  .question-container {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .question-container:hover {
+    transform: translateY(-2px);
+  }
+  
+  .question-text {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* ===== Radio Button Styling ===== */
+  .options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .option-group {
+    position: relative;
+  }
+  
+  .option-group input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .option-group label {
+    display: block;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 2px solid var(--primary-green);
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+  
+  .option-group input[type="radio"]:checked + label {
+    background: var(--secondary-blue);
+    color: white;
+    border-color: var(--secondary-blue);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  }
+  
+  .option-group:hover label {
+    background: var(--primary-green);
+    color: white;
+  }
+  
+  /* ===== Button Styles ===== */
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-green));
+    color: white;
+    margin: 2rem auto;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.3);
+  }
+  
+  .retry-btn {
+    background: linear-gradient(135deg, var(--accent-teal), var(--primary-green));
+  }
+  
+  /* ===== Results Section ===== */
+  #resultsSection {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .performance-summary {
+    background: rgba(236, 240, 241, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .performance-summary h3 {
+    color: var(--accent-teal);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* ===== Chart Responsiveness ===== */
+  #chartContainer {
+    position: relative;
+    height: 400px;
+    margin: 2rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    #chartContainer {
+      height: 300px;
+    }
+    
+    .question-text {
+      font-size: 1rem;
+    }
+    
+    .options-container {
+      grid-template-columns: 1fr;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #chartContainer {
+      height: 250px;
+    }
+    
+    button {
+      width: 100%;
+      padding: 1rem;
+    }
+  }
